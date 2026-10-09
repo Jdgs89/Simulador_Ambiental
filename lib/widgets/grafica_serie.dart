@@ -1,11 +1,15 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 /// Gráfica de línea sencilla para una serie temporal de valores.
 ///
 /// Pensada para variables ambientales (CO₂, temperatura, etc.).
 /// Muestra ejes simplificados y tooltip al tocar un punto.
 class GraficaSerie extends StatelessWidget {
+  /// Formato numérico del eje Y con separador de miles: 1020 -> "1,020".
+  static final _numeroCompacto = NumberFormat('#,##0');
+
   final List<double> valores;
 
   /// Etiquetas del eje X (misma longitud que [valores], p. ej. "HH:mm").
@@ -171,11 +175,12 @@ class GraficaSerie extends StatelessWidget {
     return r;
   }
 
-  /// Formato compacto del eje Y: 1050 -> "1.1K", 998 -> "998".
+  /// Formato del eje Y: número completo con separador de miles
+  /// (980 -> "980", 1020 -> "1,020"). Se redondea a entero porque el
+  /// [pasoY] "limpio" garantiza valores de eje distintos; el antiguo
+  /// formato compacto ("1.0K", "1.1K") abreviaba valores diferentes a
+  /// la misma etiqueta, produciendo duplicados confusos.
   static String _formatoEje(double v) {
-    if (v.abs() >= 1000) {
-      return '${(v / 1000).toStringAsFixed(1)}K';
-    }
-    return v.toStringAsFixed(0);
+    return _numeroCompacto.format(v.round());
   }
 }
