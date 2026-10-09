@@ -26,7 +26,7 @@ App Flutter que muestra datos de un sensor ambiental simulado (SEN66): temperatu
 
 3\. Al verificar una tarea: márcala `\[x]` en TASKS.md y haz un commit con mensaje claro.
 
-4\. Si no puedes completarla tras 2 intentos, no sigas insistiendo: déjala sin marcar, escribe debajo `BLOQUEADA: <motivo concreto>` y termina.
+4\. Si no puedes completarla tras 2 intentos, no sigas insistiendo: cambia su casilla a `\[!]`, escribe debajo `BLOQUEADA: <motivo concreto>` y termina.
 
 5\. NUNCA leas imágenes directamente. Para ver una captura usa `python C:/Users/juand/tools/vision.py <ruta> "<pregunta en inglés>"` y trabaja con su texto. Si el comando falla, marca la tarea BLOQUEADA; no adivines lo que muestra la imagen.
 

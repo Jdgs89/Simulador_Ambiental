@@ -63,3 +63,6 @@ _analisis/*.png
 .env.*
 
 _analisis/*.zip
+
+agent-log.md
+agent-runs/
